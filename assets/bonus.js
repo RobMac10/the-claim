@@ -45,8 +45,8 @@
       list.appendChild(li);
       var btn = li.querySelector('button'), body = li.querySelector('.place-body');
       var mk = null;
-      if (m) { mk = L.marker(p.ll, { icon: pin(k + 1), title: p.name }).addTo(m).bindPopup('<div class="pop">' + html + '</div>', { maxWidth: 280 }); bounds.push(p.ll); }
-      btn.addEventListener('click', function () { var open = body.hidden; body.hidden = !open; btn.setAttribute('aria-expanded', String(open)); if (open && m && mk) { m.flyTo(p.ll, p.z || 11, { duration: 0.7 }); mk.openPopup(); } });
+      if (m) { mk = L.marker(p.ll, { icon: pin(k + 1), title: p.name }).addTo(m).bindPopup('<div class="pop">' + html + '</div>', { maxWidth: 260, autoPanPadding: [20, 20] }); bounds.push(p.ll); }
+      btn.addEventListener('click', function () { var open = body.hidden; body.hidden = !open; btn.setAttribute('aria-expanded', String(open)); if (open && m && mk) { m.closePopup(); m.once('moveend', function () { mk.openPopup(); }); m.flyTo(p.ll, p.z || 11, { duration: 0.7 }); } });
     });
     if (m) { m.fitBounds(bounds, { padding: [24, 24] }); setTimeout(function () { m.invalidateSize(); m.fitBounds(bounds, { padding: [24, 24] }); }, 50); }
   }
