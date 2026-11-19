@@ -23,3 +23,10 @@ img{max-width:100%;height:auto}
 .lightbox-stage{width:auto;padding:0;background:none}
 .lightbox-stage img{width:96vw;height:auto;max-height:86vh;object-fit:contain;border:0}
 .lightbox-close{width:auto;white-space:nowrap;z-index:51}
+
+/* explore-more */
+.explore{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:.8em 0 1.4em;padding:0;list-style:none}
+.explore li{border:2px solid #e3d2b4;border-radius:12px;background:#fffaf0;padding:12px 14px}
+.explore a{font-weight:700;font-size:1.05rem;overflow-wrap:anywhere}
+.explore .kind{display:block;font:700 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#a67c2e;margin-bottom:.2em}
+.explore p{margin:.3em 0 0;font-size:.92rem;line-height:1.5}
