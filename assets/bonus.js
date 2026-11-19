@@ -17,7 +17,7 @@
     var mapEl = box.querySelector('.map'), card = box.querySelector('.stop-card'), prev = box.querySelector('.prev'), next = box.querySelector('.next-stop'), count = box.querySelector('.stop-count');
     var m = baseMap(mapEl), i = 0, markers = [];
     if (m) {
-      L.polyline(cfg.stops.map(function (s) { return s.ll; }), { color: '#8b3a1e', weight: 3, dashArray: '6 8' }).addTo(m);
+      L.polyline(cfg.path || cfg.stops.map(function (s) { return s.ll; }), { color: '#8b3a1e', weight: 3, dashArray: '6 8' }).addTo(m);
       cfg.stops.forEach(function (s, k) { var mk = L.marker(s.ll, { icon: pin(k + 1), title: s.name, keyboard: true }).addTo(m); mk.on('click', function () { go(k); }); markers.push(mk); });
       m.fitBounds(L.latLngBounds(cfg.stops.map(function (s) { return s.ll; })), { padding: [30, 30] });
     }
